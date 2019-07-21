@@ -11,14 +11,14 @@ function VerificarNumero(campo,tamanho){
 	var i, f;
 	var strNumeros =campo.value;
 	if (strNumeros.length != tamanho) {
-		alert("Telefone " + campo.name + " tem de ter " + tamanho + " digÌtos!");
+		alert("Telefone " + campo.name + " tem de ter " + tamanho + " dig√≠tos!");
 	return false;
 	}
 	
 	for (i=0;i<tamanho;i++) {
 	f = strNumeros.charAt(i);
 	if ((f < '0') || (f > '9')){
-		alert("Telefone sÛ pode ter dÌgitos, caracter " + f + " inv·lido!");
+		alert("Telefone s√≥ pode ter d√≠gitos, caracter " + f + " inv√°lido!");
 		return false;
 		}
 	}
@@ -34,7 +34,7 @@ Tel: (21) 98765-4321<br>
 </header>
 <nav>
 <ul>
-<li> <a href="Rio200graus.html">Inicial</a></li>
+<li> <a href="index.html">Inicial</a></li>
 <li> <a href="Tipos.html">Tipos</a></li>
 <li> <a href="Estoque.html">Estoque</a></li>
 <li> <a href="Cadastro.html">Cadastro</a></li>
@@ -60,7 +60,7 @@ Tel: (21) 98765-4321<br>
 <input id="NomeCompleto" class="inpGrande" name="txtNomeCompleto"/></div>
 <div class="divLinha">
 <label for="idEndereco" class="colPri">Endere&ccedil;o:</label>
-<textarea id="idEndereÁo" class="inpGrande" rows="2" name="txtEndereco"></textarea>
+<textarea id="idEndere√ßo" class="inpGrande" rows="2" name="txtEndereco"></textarea>
 <div class="divLinha">
 <label for="idTelefone" class="colPri">Telefone: </label>
 <input id="idTelefone" class="impMedio" name="Fixo" onChange="VerificarNumero(this,8);"/>
