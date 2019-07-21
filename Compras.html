@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Compras</title>
+<link href="https://fonts.googleapis.com/css?family=Stoke" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="Rio200graus.css" />
+</head>
+<body>
+<script>
+var tabTipos = ["Fogao", "Forno"];
+
+var tabInfo = [[0,"Brastemp 4 B. BFO4N", 750],
+			   [0,"Brastemp 6 B. BFS6N", 1350],
+			   [0,"Electrolux 4 B. 50SBC",784],
+			   [1,"Elétrico Philco 46L", 319],
+			   [1,"Gás 56 Litros Itajobi", 563]];
+			   
+function Compra(f) {
+	var total = (f.ValorTotal.value > 0) ? parseFloat(f.ValorTotal.value) : 0;
+	var nl = f.selProduto.selectedIndex - 1;
+	var tp = tabInfo[nl][0];
+	f.ListadeCompras.value += tabTipos[tp] + " " + tabInfo[nl][1] + "\n";
+	f.ValorTotal.value = total + tabInfo[nl][2];
+}
+</script>
+<header>
+<img class="imgLogo" src="imagens/Rio200deitado.png">
+<address class="ender">Avenida Atacama, 200<br>
+Tel: (21) 98765-4321<br>
+<a href="mailto:contato@hotashell.com.br">contato@hotashell.com.br</a></address>
+</header>
+<nav>
+<ul>
+<li> <a href="Rio200graus.html">Inicial</a></li>
+<li> <a href="Tipos.html">Tipos</a></li>
+<li> <a href="Estoque.html">Estoque</a></li>
+<li> <a href="Cadastro.html">Cadastro</a></li>
+<li> <a href="Compras.html">Compras</a></li></ul>
+</nav>
+<section>
+<h3>Compras</h3>
+<form method="post">
+<fieldset><legend>Identifica&ccedil;&atilde;o</legend>
+<div class="linhaCompras">
+<label for="idEmail" class="colPriCompras">E-mail:</label>
+<input id="idEmail" class="inpEmail" name="txtEmail" type="email" required />
+<label for="idSenha" class="elemDir">Senha:
+<input id="idSenha" class="impMedio" name="txtSenha" type="password" required /></label></div>
+<div class="linhaCompras">
+<i><b>Se você ainda nao tem cadastro clique <a href="Cadastro.html">aqui</a>!</b></i>
+</div></fieldset>
+<fieldset><legend>Lista de Compras e Pagamento</legend>
+<div class="linhaCompras">Produtos:<br/>
+<select name="ProdutoSelecionado" id="selProduto">
+<option> ----- </option>
+<script>
+for (t = 0; t < tabTipos.length; t++) {
+	document.write("<optgroup label='", tabTipos[t], "'>");
+	for (i = 0; i < tabInfo.length; i++) {
+		if (tabInfo[i][0] == t) {
+			with (document) {
+				write("<option>");
+				write(tabInfo[i][1]);
+				write("</option>\n");
+			}
+		}
+	}
+	document.write("</optgroup>\n");
+}
+</script>
+</select>
+<input type="button" value="Comprar" onClick="Compra(this.form);"/>
+<textarea class="elemDir" name="ListadeCompras" readonly rows="12"></textarea>
+<fieldset class="fsEsqCompras"><legend> Dados do Cart&atilde;o </legend>
+<fieldset class="fsEsqCompras"><legend>Bandeira:</legend>
+<label><input type="radio" name="Bandeira">Visa</input></label>
+<label><input type="radio" name="Bandeira">Master</input></label>
+<label><input type="radio" name="Bandeira">Elo</input></label>
+</fieldset>
+<br/><br/><br/><br/>
+<div>
+<br>
+<label class="colPriCompras" for="CartaoMes">Validade:</label>
+<input id="CartaoMes" class="numDD" name="txtCartaoMes" type="number" min="1" max="12"/>
+<input id="CartaoAno" class="numQD" name="txtCartaoAno" type="number" min="2019" max="2026"/>
+</div>
+<br/>
+<div>
+<label class="colPriCompras" for="NumeroCartao">N&uacute;mero:</label>
+<input id="NumeroCartao" type="text" name="txtNumeroCartao"/>
+</fieldset>
+</div>
+<div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<label  for="ValorTotal">Valor: R$
+<input id="ValorTotal" type="text" class="impMedio" name="txtValorTotal" readonly /></label>
+</div>
+</fieldset>
+<div class="botoes">
+	<input type="submit" value="Enviar" />
+	<input type="reset" value="Limpar" />
+</form>
+</section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Estoque</title>
+<link href="https://fonts.googleapis.com/css?family=Stoke" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="Rio200graus.css" />
+</head>
+<body>
+<script>
+var infoProdutos =[["imagens/FogaoBrastemp4b.jpg", "R$ 730,00"],
+				   ["imagens/FogaoElectrolux4b.jpg","R$ 784,00"],
+				   ["imagens/FogaoBrastemp6b.jpg","R$ 1350,00"],
+				   ["imagens/FornoEletPhilco46L.jpg","R$ 319,00"],
+				   ["imagens/FornoGasItajobi56L.jpg","R$ 563,00"]]
+
+function Mostra(i) {
+	var imagem = document.getElementById("imgProduto")
+	var preco = document.getElementById("precoProduto")
+	
+	imagem.src = infoProdutos[i][0];
+	preco.innerHTML = infoProdutos[i][1];
+}
+
+</script>
+<header>
+<img class="imgLogo" src="imagens/Rio200deitado.png">
+<address class="ender">Avenida Atacama, 200<br>
+Tel: (21) 98765-4321<br>
+<a href="mailto:contato@hotashell.com.br">contato@hotashell.com.br</a></address>
+</header>
+<nav>
+<ul>
+<li> <a href="Rio200graus.html">Inicial</a></li>
+<li> <a href="Tipos.html">Tipos</a></li>
+<li> <a href="Estoque.html">Estoque</a></li>
+<li> <a href="Cadastro.html">Cadastro</a></li>
+<li> <a href="Compras.html">Compras</a></li></ul>
+</nav>
+<section>
+<table class="tabInfo">
+<tr><th class="titulo" colspan="5">Fog&atilde;o & Forno</th>
+<tr>
+<th class="linTH">Tipo</th>
+<th colspan="2" class="linTH">Modelo</th>
+<th class="linTH" colspan="2">Imagem/Pre&ccedil;o</th>
+</tr>
+<tr>
+<th class="colTH" rowspan="3">Forno</th>
+<td colspan="2"><a target="_self" href="javascript:Mostra(0);">Brastemp de Piso 4 bocas</a></td>
+<td colspan="2" rowspan="5"><img id="imgProduto" class="janela" src="imagens/Vazio.jpg"><div id="precoProduto" class="preco">&nbsp;</div></td>
+</tr>
+<tr>
+<td colspan="2"><a target="_self" href="javascript:Mostra(1);">Electrolux de Piso 4 bocas</a></td>
+</tr>
+<tr>
+<td colspan="2"><a target="_self" href="javascript:Mostra(2);">Brastemp de Piso 6 bocas</a></td>
+</tr>
+<tr>
+<th class="colTH" rowspan="3">Fog&atilde;o</th>
+<td colspan="2"><a target="_self" href="javascript:Mostra(3);">Philco Elétrico 46L</a></td>
+</tr>
+<tr>
+<td colspan="2"><a target="_self" href="javascript:Mostra(4);">Itajobi à gás 56L</a></td>
+</tr>
+</table> 
+</section>
+</body>
+</html>

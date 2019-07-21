@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tipos</title>
+<link href="https://fonts.googleapis.com/css?family=Stoke" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="Rio200graus.css"/>
+</head>
+<body>
+<script type="text/javascript">
+var tabTipos = new Array(2);
+var tabMarcas = new Array(2);
+
+tabTipos[0] = "Fog&atilde;o";
+tabTipos[1] = "Forno";
+
+tabMarcas[0] = [["FogaoBrastemp4b", "Brastemp 4 bocas", "730"], 
+			   ["FogaoElectrolux6b", "Electrolux 6 bocas", "784"],
+			   ["FogaoBrastemp6b", "Brastemp 6 bocas", "1350"]];
+tabMarcas[1] = [["FornoEletPhilco46L", "El&eacute;trico Philco 46L", "319"],
+				["FornoGasItajobi56L", "&Agrave; g&aacute;s Itajobi 56L", "563"]];
+				
+function MostrarMarcas(tipo){
+	var janela = open("", tabTipos[tipo],"width=360,height=500");
+
+with (janela.document) {
+write("<html><head><title>Rio 200 graus</title>");
+write("<link rel='stylesheet' type='text/css'");
+write(" href='Rio200graus.css'>");
+write("</head><body>");
+write("<div class='apres'>");
+write("<h2>", tabTipos[tipo], "</h2>");
+write("<img src='imagens/", tabMarcas[tipo][0][0],
+".jpg' class='janela' />");
+write("</div><ul>");
+for (i = 0; i < tabMarcas[tipo].length; i++)
+write("<li>", tabMarcas[tipo][i][1],
+" - R$ ", tabMarcas[tipo][i][2],
+",00</li>");
+write("</ul>");
+write("<div class='apres'>");
+write("<input type='button' value='Fechar' ");
+write("onClick='window.close();'/></div>");
+write("</form></div><br/>");
+write("Foto meramente ilustrativa...");
+write("</body></html>");
+close();
+}
+}				
+
+</script>
+<header>
+<img class="imgLogo" src="imagens/Rio200deitado.png">
+<address class="ender">Avenida Atacama, 200<br>
+Tel: (21) 98765-4321<br>
+<a href="mailto:contato@hotashell.com.br">contato@hotashell.com.br</a></address>
+</header>
+<nav>
+<ul>
+<li> <a href="Rio200graus.html">Inicial</a></li>
+<li> <a href="Tipos.html">Tipos</a></li>
+<li> <a href="Estoque.html">Estoque</a></li>
+<li> <a href="Cadastro.html">Cadastro</a></li>
+<li> <a href="Compras.html">Compras</a></li></ul>
+</nav>
+<section>
+<h3>Tipos</h3>
+<ol class="listaTipos">
+<li><a target="_self" href="javascript:MostrarMarcas(0);"> Fog&atilde;o &agrave; g&aacute;s GLP:</a></li>
+<li><a target="_self" href="javascript:MostrarMarcas(1);">Forno:</a></li>
+</ol>
+</section>
+</body>
+</html>
